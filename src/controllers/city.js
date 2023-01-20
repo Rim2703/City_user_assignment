@@ -1,4 +1,5 @@
 const cityModel = require('../models/cityModel')
+const axios = require('axios')
 
 const createCity = async function (req, res) {
     try {
@@ -28,4 +29,23 @@ const getCities = async function (req, res) {
     }
 }
 
-module.exports = { createCity, getCities }
+
+
+let thirdPartyApi = async function (req, res) {
+    try {
+        let options = {
+            method: 'get',
+            url: 'https://api.binance.com/api/v1/time'
+        }
+        let result = await axios(options);
+        console.log(result)
+        let data = result.data
+        res.status(200).send({ msg: data, status: true })
+    }
+    catch (err) {
+        console.log(err)
+        res.status(500).send({ msg: err.message })
+    }
+}
+
+module.exports = { createCity, getCities, thirdPartyApi }

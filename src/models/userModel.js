@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    // Id: {
+    //     type: ObjectId,
+    //     required: true,
+    //     ref: 'City'
+    // },
     mobile: Number,
     media_url: {
         type: String
