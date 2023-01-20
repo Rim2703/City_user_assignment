@@ -18,6 +18,9 @@ const mongoose = require('mongoose')
 mongoose.set('strictQuery', false);
 const app = express()
 
+
+app.use(express.json());
+
 mongoose.connect("mongodb+srv://Rimsha:RimAtlas@cluster0.ij9mujl.mongodb.net/city", {
     useNewUrlParser: true
 })
